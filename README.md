@@ -39,7 +39,7 @@ ssh root@ip.address.of.droplet
 ```
 Let’s access Droplet B via SSH where MongoDB lives.
 
-#### Setup a firewall
+#### 1. Setup a firewall
 
 We will setup a firewall to prevent public internet access to the droplet. We will use ufw, the default firewall configuration tool for Ubuntu for this.
 To deny incoming connections from HTTP and HTTPS connections we can add the following rules:
@@ -53,13 +53,13 @@ You can now review all the rules you have added with:
 sudo ufw status
 ```
 
-#### Add MongoDB user authentication
+#### 2. Add MongoDB user authentication
 
 For a given database in MongoDB, we can add an extra measure of security by applying user authentication. This is covered in  the official MongoDB documentation.
 We will need the username and password combination later to access the database from the Meteor app.
 To further strengthen the security of MongoDB, you can review this checklist.
 
-#### Bind IP to Private IP
+#### 3. Bind IP to Private IP
 
 By default the IP for MongoDB is bound to localhost or 127.0.0.1. We want to change this to our private IP of Droplet B so Droplet A can connect to it.
 First open the mongoDB configuration file:
@@ -73,14 +73,14 @@ You can find the private IP in Digital Ocean when you click on the droplet from 
 Save the file and exit.
 
 
-#### Allow connection to Droplet A
+#### 4. Allow connection to Droplet A
 
 Make a note of the private IP for Droplet A. Let’s go back to ufw to allow incoming connections from the private IP of Droplet A.
 ```
 sudo ufw allow from private.ip.of.A
 ```
 
-#### Meteor deployment configuration
+#### 5. Meteor deployment configuration
 
 Back in mup.json, in the server block, add the public IP address of Droplet A as well as the pem file for SSH authentication:
 ```
