@@ -16,7 +16,7 @@ This will prevent Meteor from installing MongoDB locally on the server.
 ## Creating private droplets
 Digital ocean provides us with a private networking setting for our droplets. This allows two droplets with this interface within the same datacenter communicate privately with no public internet access. We will take advantage of this for our Meteor app.
 
-1. Droplet A — Create a droplet for your Meteor app
+#### 1. Droplet A — Create a droplet for your Meteor app
 While choosing an image, under ‘Distributions’ select Ubuntu and the latest version available.
 
 Meteor apps are pretty CPU intensive, therefore choose a minimum of 2 CPUs when choosing a size.
@@ -27,7 +27,7 @@ Select ‘Private Networking’ in additional options
 
 If you have never added SSH keys on Digital Ocean before, you can add it using this tutorial. Make sure you avoid creating a passphrase for the SSH key generated since Mupx currently does not support it for deployment. After selecting your SSH key and choosing a hostname, we conclude the creation of Droplet A.
 
-2. Droplet B — Create a droplet for MongoDB
+#### 2. Droplet B — Create a droplet for MongoDB
 While choosing an image, this time we will go to ‘One-click apps’ and select MongoDB. This will setup MongoDB automatically on the droplet.
 
 You can choose 1CPU for the droplet size. For the remainder of the steps repeat everything else we had selected for Droplet A, especially ‘Private Networking’ in additional options.
