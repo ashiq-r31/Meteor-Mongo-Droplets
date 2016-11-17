@@ -2,7 +2,7 @@
 
 <img src="https://cloud.githubusercontent.com/assets/7483633/20392738/aa4b1b62-acf2-11e6-993e-155a952b7cdb.jpg"/>
 
-If you have built a Meteor app, chances are that you deployed it using Mupx, just like myself. It’s a great command line tool that wraps everything up as a Docker container and deploys it to your VPS.
+If you have built a Meteor app, chances are that you deployed it using [Mupx](https://github.com/arunoda/meteor-up/tree/mupx), just like myself. It’s a great command line tool that wraps everything up as a Docker container and deploys it to your VPS.
 Typically MongoDB is automatically setup within the Docker container if we declare the following in our mup.json configuration file:
 ```
 “setupMongo”: true
@@ -31,7 +31,7 @@ Pick whichever datacenter region you want, but make sure that you select the sam
 Select ‘Private Networking’ in additional options
 <img width="566" alt="screen shot 2016-11-16 at 2 47 44 am" src="https://cloud.githubusercontent.com/assets/7483633/20392740/aa4e7104-acf2-11e6-8bba-8a2200918f37.png">
 
-If you have never added SSH keys on Digital Ocean before, you can add it using this tutorial. Make sure you avoid creating a passphrase for the SSH key generated since Mupx currently does not support it for deployment. After selecting your SSH key and choosing a hostname, we conclude the creation of Droplet A.
+If you have never added SSH keys on Digital Ocean before, you can add it using this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2). Make sure you avoid creating a passphrase for the SSH key generated since Mupx currently does not support it for deployment. After selecting your SSH key and choosing a hostname, we conclude the creation of Droplet A.
 
 #### 2. Droplet B — Create a droplet for MongoDB
 While choosing an image, this time we will go to ‘One-click apps’ and select MongoDB. This will setup MongoDB automatically on the droplet.
@@ -63,9 +63,9 @@ sudo ufw status
 
 #### 2. Add MongoDB user authentication
 
-For a given database in MongoDB, we can add an extra measure of security by applying user authentication. This is covered in  the official MongoDB documentation.
+For a given database in MongoDB, we can add an extra measure of security by applying user authentication. This is [covered](https://docs.mongodb.com/v3.2/tutorial/enable-authentication/) in  the official MongoDB documentation.
 We will need the username and password combination later to access the database from the Meteor app.
-To further strengthen the security of MongoDB, you can review this checklist.
+To further strengthen the security of MongoDB, you can review this [checklist](https://docs.mongodb.com/v3.0/administration/security-checklist/).
 
 #### 3. Bind IP to Private IP
 
