@@ -1,5 +1,7 @@
 # Connect Meteor to a separate MongoDB server w/ Digital Ocean
 
+<img src="https://cloud.githubusercontent.com/assets/7483633/20392738/aa4b1b62-acf2-11e6-993e-155a952b7cdb.jpg"/>
+
 If you have built a Meteor app, chances are that you deployed it using Mupx, just like myself. It’s a great command line tool that wraps everything up as a Docker container and deploys it to your VPS.
 Typically MongoDB is automatically setup within the Docker container if we declare the following in our mup.json configuration file:
 ```
@@ -18,17 +20,23 @@ Digital ocean provides us with a private networking setting for our droplets. Th
 
 #### 1. Droplet A — Create a droplet for your Meteor app
 While choosing an image, under ‘Distributions’ select Ubuntu and the latest version available.
+<img width="1016" alt="screen shot 2016-11-16 at 2 43 31 am" src="https://cloud.githubusercontent.com/assets/7483633/20392743/aa72c1ee-acf2-11e6-968f-0025155f1196.png">
 
 Meteor apps are pretty CPU intensive, therefore choose a minimum of 2 CPUs when choosing a size.
+<img width="999" alt="screen shot 2016-11-16 at 2 43 43 am" src="https://cloud.githubusercontent.com/assets/7483633/20392742/aa524a22-acf2-11e6-8e98-4341f68744ae.png">
 
 Pick whichever datacenter region you want, but make sure that you select the same region for your second droplet for MongoDB.
+<img width="1043" alt="screen shot 2016-11-16 at 2 47 24 am" src="https://cloud.githubusercontent.com/assets/7483633/20392741/aa4e717c-acf2-11e6-90bf-dea2386a86b4.png">
 
 Select ‘Private Networking’ in additional options
+<img width="566" alt="screen shot 2016-11-16 at 2 47 44 am" src="https://cloud.githubusercontent.com/assets/7483633/20392740/aa4e7104-acf2-11e6-8bba-8a2200918f37.png">
 
 If you have never added SSH keys on Digital Ocean before, you can add it using this tutorial. Make sure you avoid creating a passphrase for the SSH key generated since Mupx currently does not support it for deployment. After selecting your SSH key and choosing a hostname, we conclude the creation of Droplet A.
 
 #### 2. Droplet B — Create a droplet for MongoDB
 While choosing an image, this time we will go to ‘One-click apps’ and select MongoDB. This will setup MongoDB automatically on the droplet.
+
+<img width="1008" alt="screen shot 2016-11-16 at 3 00 51 am" src="https://cloud.githubusercontent.com/assets/7483633/20392737/aa4ad4d6-acf2-11e6-9015-b4dded44649a.png">
 
 You can choose 1CPU for the droplet size. For the remainder of the steps repeat everything else we had selected for Droplet A, especially ‘Private Networking’ in additional options.
 
@@ -70,6 +78,8 @@ Then change the bind_ip:
 bind_ip: private.ip.of.B
 ```
 You can find the private IP in Digital Ocean when you click on the droplet from the Droplets page.
+<img width="998" alt="digitalocean_-_droplet" src="https://cloud.githubusercontent.com/assets/7483633/20392739/aa4d1458-acf2-11e6-9fe9-2fd095b0df7d.png">
+
 Save the file and exit.
 
 
